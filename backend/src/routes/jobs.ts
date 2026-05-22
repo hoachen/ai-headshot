@@ -4,8 +4,7 @@ import { verifyAuth } from '../middleware/auth.js';
 import { jobSubmitRateLimit } from '../middleware/rateLimit.js';
 import { createJob, getJobForUser, listUserJobs, deleteJobPhotos } from '../db/jobs.repo.js';
 import { enqueueHeadshotJob } from '../queue/headshot.queue.js';
-import { uploadBuffer, getPresignedUploadUrl } from '../services/r2.service.js';
-import multipart from '@fastify/multipart';
+import { uploadBuffer } from '../services/r2.service.js';
 
 const submitSchema = z.object({
   industry: z.enum(['Tech', 'Finance', 'Legal', 'Medical', 'Creative', 'Sales']),
@@ -81,9 +80,9 @@ export async function jobRoutes(app: FastifyInstance): Promise<void> {
   });
 
   // GET /jobs/:id/stream — SSE progress stream
-  app.get('/jobs/:id/stream', {
+  app.get<{ Params: { id: string } }>('/jobs/:id/stream', {
     preHandler: [verifyAuth],
-  }, async (request: FastifyRequest<{ Params: { id: string } }>, reply: FastifyReply) => {
+  }, async (request, reply) => {
     const { id } = request.params;
     const user = request.user;
 
@@ -131,9 +130,9 @@ export async function jobRoutes(app: FastifyInstance): Promise<void> {
   });
 
   // GET /jobs/:id — poll job status
-  app.get('/jobs/:id', {
+  app.get<{ Params: { id: string } }>('/jobs/:id', {
     preHandler: [verifyAuth],
-  }, async (request: FastifyRequest<{ Params: { id: string } }>, reply: FastifyReply) => {
+  }, async (request, reply) => {
     const job = await getJobForUser(request.params.id, request.user.sub);
     if (!job) return reply.status(404).send({ error: 'Job not found' });
     return reply.send(job);
@@ -148,9 +147,9 @@ export async function jobRoutes(app: FastifyInstance): Promise<void> {
   });
 
   // DELETE /jobs/:id/photos — early deletion
-  app.delete('/jobs/:id/photos', {
+  app.delete<{ Params: { id: string } }>('/jobs/:id/photos', {
     preHandler: [verifyAuth],
-  }, async (request: FastifyRequest<{ Params: { id: string } }>, reply: FastifyReply) => {
+  }, async (request, reply) => {
     const deleted = await deleteJobPhotos(request.params.id, request.user.sub);
     if (!deleted) return reply.status(404).send({ error: 'Job not found' });
     return reply.status(204).send();

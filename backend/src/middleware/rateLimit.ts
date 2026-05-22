@@ -1,6 +1,5 @@
 import { FastifyInstance } from 'fastify';
 import fastifyRateLimit from '@fastify/rate-limit';
-import { env } from '../config/env.js';
 
 export async function registerRateLimit(app: FastifyInstance): Promise<void> {
   await app.register(fastifyRateLimit, {

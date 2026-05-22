@@ -1,4 +1,4 @@
-import * as fal from '@fal-ai/client';
+import { fal } from '@fal-ai/client';
 import { env } from '../config/env.js';
 
 fal.config({ credentials: env.FAL_KEY });
@@ -58,6 +58,7 @@ export async function generateHeadshots(params: {
   const negativePrompt = 'cartoon, anime, painting, blurry, distorted, disfigured, watermark, text, logo, bad anatomy';
 
   const result = await fal.run('fal-ai/flux/dev', {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     input: {
       prompt,
       negative_prompt: negativePrompt,
@@ -67,7 +68,7 @@ export async function generateHeadshots(params: {
       num_inference_steps: 28,
       guidance_scale: 3.5,
       enable_safety_checker: true,
-    },
+    } as any,
   });
 
   const output = result as any;
@@ -109,7 +110,7 @@ export async function generateFreePreview(params: {
       image_url: params.faceImageUrl,
       num_images: 1,
       image_size: { width: 512, height: 512 },
-    },
+    } as any,
   });
 
   const output = result as any;

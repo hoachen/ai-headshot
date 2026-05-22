@@ -1,9 +1,7 @@
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
 import { z } from 'zod';
-import jwt from 'jsonwebtoken';
 import { findOrCreateUser, softDeleteUser } from '../db/users.repo.js';
 import { signToken, verifyAuth } from '../middleware/auth.js';
-import { env } from '../config/env.js';
 
 const createUserSchema = z.object({
   apple_user_id: z.string().min(1),

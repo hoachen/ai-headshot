@@ -23,9 +23,7 @@ const RC_PLAN_MAP: Record<string, 'monthly' | 'annual'> = {
 };
 
 export async function webhookRoutes(app: FastifyInstance): Promise<void> {
-  app.post('/webhooks/revenuecat', {
-    config: { rawBody: true },
-  }, async (request: FastifyRequest, reply: FastifyReply) => {
+  app.post('/webhooks/revenuecat', async (request: FastifyRequest, reply: FastifyReply) => {
     // Validate HMAC signature
     const signature = request.headers['x-revenuecat-signature'] as string;
     if (!signature) {

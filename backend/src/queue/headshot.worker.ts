@@ -1,6 +1,6 @@
 import { Worker, Job } from 'bullmq';
-import { redisConnection, PRO_QUEUE, FREE_QUEUE } from './headshot.queue.js';
-import { HeadshotJobData, HeadshotJobResult, ErrorCode, stepToPercent } from './job.types.js';
+import { redisConnection } from './headshot.queue.js';
+import { HeadshotJobData, HeadshotJobResult, ErrorCode, stepToPercent, PRO_QUEUE, FREE_QUEUE } from './job.types.js';
 import { updateJobStatus } from '../db/jobs.repo.js';
 import {
   extractFaceEmbedding,
@@ -8,7 +8,7 @@ import {
   upscaleImage,
   generateFreePreview,
 } from '../services/fal.service.js';
-import { uploadFromUrl, keyFromPublicUrl } from '../services/r2.service.js';
+import { uploadFromUrl } from '../services/r2.service.js';
 import { sendGenerationComplete } from '../services/apns.service.js';
 
 const WORKER_OPTIONS = {
