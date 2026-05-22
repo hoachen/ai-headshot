@@ -1,0 +1,61 @@
+/* Camera */
+"camera.instruction.align"    = "Position your face in the oval";
+"camera.instruction.hold"     = "Hold still...";
+"camera.instruction.closer"   = "Move a little closer";
+"camera.instruction.forward"  = "Please face forward";
+"camera.instruction.level"    = "Please hold your head level";
+"camera.instruction.brighter" = "Move to a brighter spot";
+"camera.instruction.blur"     = "Hold still — slight blur detected";
+"camera.instruction.glasses"  = "Remove glasses or hat if possible";
+"camera.photo.progress"       = "Photo %d of %d";
+
+/* Onboarding */
+"onboarding.skip"     = "Skip";
+"onboarding.continue" = "Continue";
+"onboarding.start"    = "Get Started";
+
+/* Generation */
+"generation.state.preparing"  = "Preparing...";
+"generation.state.face_check" = "Analyzing face...";
+"generation.state.embedding"  = "Extracting features...";
+"generation.state.generating" = "Generating headshots...";
+"generation.state.upscaling"  = "Enhancing to 4K...";
+"generation.state.uploading"  = "Finishing up...";
+"generation.state.done"       = "Complete!";
+"generation.state.failed"     = "Generation failed";
+"generation.cancel"           = "Cancel";
+
+/* Results */
+"results.privacy.countdown"  = "Photos auto-deleted in %d hours";
+"results.action.download"    = "Download to Photos";
+"results.action.share"       = "Share";
+"results.action.linkedin"    = "Set as LinkedIn Photo";
+"results.regenerate"         = "Regenerate";
+
+/* Paywall */
+"paywall.title"          = "Studio-Quality Headshots";
+"paywall.subtitle"       = "Join 50,000+ professionals";
+"paywall.trial"          = "Start 7-Day Free Trial";
+"paywall.restore"        = "Restore Purchases";
+"paywall.legal"          = "Free for 7 days, then auto-renews. Cancel anytime in Settings > Subscriptions.";
+"paywall.feature.photos" = "20 studio-quality headshots per generation";
+"paywall.feature.4k"     = "4K upscaling — print-ready resolution";
+"paywall.feature.privacy"= "Photos auto-deleted in 24 hours";
+"paywall.feature.regen"  = "Unlimited regenerations";
+"paywall.feature.native" = "Native iOS — no browser upload needed";
+
+/* Settings */
+"settings.account"       = "Account";
+"settings.subscription"  = "Subscription";
+"settings.notifications" = "Notifications";
+"settings.privacy"       = "Privacy & Data";
+"settings.about"         = "About";
+"settings.delete_data"   = "Delete My Data";
+"settings.upgrade"       = "Upgrade to Pro";
+"settings.manage"        = "Manage Subscription";
+
+/* Errors */
+"error.no_face"        = "No face detected. Please retake your photos.";
+"error.low_quality"    = "Photo quality too low. Please try again in better lighting.";
+"error.upload_failed"  = "Upload failed. Please check your connection.";
+"error.generic"        = "Something went wrong. Please try again.";

@@ -1,0 +1,39 @@
+# Backend
+backend/node_modules/
+backend/dist/
+backend/.env
+backend/*.log
+
+# iOS / Xcode
+ios/**/*.xcodeproj/xcuserdata/
+ios/**/*.xcworkspace/xcuserdata/
+ios/**/DerivedData/
+ios/**/.build/
+ios/**/*.ipa
+ios/**/*.dSYM.zip
+ios/**/*.dSYM
+ios/**/Pods/
+ios/**/*.hmap
+ios/**/*.ipa
+ios/**/*.xcarchive
+ios/**/*.xcuserdata
+ios/**/xcuserdata
+
+# macOS
+.DS_Store
+**/.DS_Store
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+*.pem
+
+# Logs
+*.log
+npm-debug.log*
+
+# Coverage
+coverage/
+.nyc_output/
